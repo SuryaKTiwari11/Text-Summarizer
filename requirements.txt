@@ -1,0 +1,48 @@
+# Hugging Face Transformers library with SentencePiece tokenizer support (for NLP models)
+transformers[sentencepiece]
+# Hugging Face Datasets library for loading and processing datasets
+datasets
+# Metric for machine translation evaluation (BLEU score)
+sacrebleu
+# Metric for summarization and translation evaluation (ROUGE score)
+rouge_score
+# 7-zip archive support for Python
+py7zr
+# Data analysis and manipulation library
+pandas
+# Natural Language Toolkit (NLP tasks like tokenization, stemming, etc.)
+nltk
+# Progress bar utility for loops
+tqdm
+# Plotting and visualization library
+matplotlib
+# PyTorch deep learning framework
+torch
+# Machine learning utilities (classification, regression, etc.)
+scikit-learn
+# HTML/XML parsing library (web scraping)
+beautifulsoup4
+# XML and HTML processing library (fast parser)
+lxml
+# Industrial-strength NLP library
+spacy
+# YAML file parsing and writing
+PyYAML
+# Jupyter Notebook support (interactive coding)
+notebook
+# AWS SDK for Python (Amazon Web Services integration)
+boto3
+# Type annotations for boto3 S3 client (for static type checking)
+mypy-boto3-s3
+# Python dictionaries with dot notation access
+python-box==6.0.2
+# Ensures conditions are met (assertion utility)
+ensure==1.0.2
+# FastAPI web framework (for building APIs)
+fastapi==0.78.0
+# ASGI server for FastAPI (serves your API)
+uvicorn==0.18.3
+# Templating engine for web applications
+Jinja2==3.1.2
+# Install the current project in editable mode (local development)
+-e .
