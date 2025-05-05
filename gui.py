@@ -57,6 +57,12 @@ class TextSummarizerApp:
                                textvariable=self.font_size, command=self.update_font_size)
         font_spin.pack(side=tk.LEFT, padx=5)
         
+        # Created by section
+        created_by_frame = ttk.Frame(settings_frame)
+        created_by_frame.pack(side=tk.RIGHT, padx=5)
+        ttk.Label(created_by_frame, text="Created by: SURYA, MONISHKA, DIYA", 
+                 font=("Arial", 9, "italic")).pack(side=tk.RIGHT)
+        
         # Title
         title_label = ttk.Label(main_frame, text="Text Summarizer", font=("Arial", 16, "bold"))
         title_label.pack(pady=10)

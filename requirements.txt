@@ -1,3 +1,2 @@
-nltk>=3.7
 scikit-learn>=1.0.2
 networkx>=2.8

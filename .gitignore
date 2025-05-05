@@ -6,6 +6,8 @@ __pycache__/
 # Output files
 output.txt
 
+ 
+
 # VS Code settings
 .vscode/
 

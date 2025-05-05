@@ -1,11 +1,10 @@
 import os
 import re
-import nltk
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import networkx as nx
 
-# Manual sentence tokenization function to avoid punkt_tab dependency
+# 
 def simple_sent_tokenize(text):
     # Split text by common sentence delimiters
     sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s', text)
