@@ -196,3 +196,5 @@ The NetworkX library is used for creating, manipulating, and analyzing complex n
 - **NLTK**: Although included, the code uses a custom sentence tokenizer instead of NLTK's built-in one to avoid extra dependencies. NLTK is generally used for natural language processing tasks like tokenization, stemming, and tagging.
 - **scikit-learn**: Provides the `TfidfVectorizer` for converting sentences into TF-IDF vectors and `cosine_similarity` for measuring similarity between these vectors. These are essential for building the similarity matrix in the TextRank algorithm.
 - **NetworkX**: Used to construct a graph where sentences are nodes and similarities are edge weights. NetworkX's PageRank implementation ranks sentences by importance, enabling extraction of the most relevant sentences for the summary.
+
+

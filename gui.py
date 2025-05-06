@@ -12,16 +12,13 @@ class TextSummarizerApp:
         self.root.geometry("800x600")
         self.root.minsize(600, 500)
         
-        # Theme and font settings
         self.theme_mode = tk.StringVar(value="light")
         self.font_size = tk.IntVar(value=11)
         
-        # Configure style
         self.style = ttk.Style()
         self.style.configure('TButton', font=('Arial', 10))
         self.style.configure('TLabel', font=('Arial', 11))
         
-        # Word count variables
         self.input_word_count = tk.StringVar(value="Words: 0")
         self.output_word_count = tk.StringVar(value="Words: 0")
         self.compression_ratio = tk.StringVar(value="Compression: 0%")
@@ -30,15 +27,12 @@ class TextSummarizerApp:
         self.apply_theme("light")
         
     def create_widgets(self):
-        # Main frame
         main_frame = ttk.Frame(self.root, padding="10")
         main_frame.pack(fill=tk.BOTH, expand=True)
         
-        # Settings bar
         settings_frame = ttk.Frame(main_frame)
         settings_frame.pack(fill=tk.X, pady=(0, 10))
         
-        # Theme selection
         theme_frame = ttk.Frame(settings_frame)
         theme_frame.pack(side=tk.LEFT, padx=5)
         
@@ -48,7 +42,6 @@ class TextSummarizerApp:
         theme_combo.pack(side=tk.LEFT, padx=5)
         theme_combo.bind("<<ComboboxSelected>>", lambda e: self.apply_theme(self.theme_mode.get().lower()))
         
-        # Font size
         font_frame = ttk.Frame(settings_frame)
         font_frame.pack(side=tk.LEFT, padx=5)
         
@@ -57,17 +50,14 @@ class TextSummarizerApp:
                                textvariable=self.font_size, command=self.update_font_size)
         font_spin.pack(side=tk.LEFT, padx=5)
         
-        # Created by section
         created_by_frame = ttk.Frame(settings_frame)
         created_by_frame.pack(side=tk.RIGHT, padx=5)
         ttk.Label(created_by_frame, text="Created by: SURYA, MONISHKA, DIYA", 
                  font=("Arial", 9, "italic")).pack(side=tk.RIGHT)
         
-        # Title
         title_label = ttk.Label(main_frame, text="Text Summarizer", font=("Arial", 16, "bold"))
         title_label.pack(pady=10)
         
-        # Input section
         input_frame = ttk.LabelFrame(main_frame, text="Input Text", padding="10")
         input_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         
@@ -76,16 +66,13 @@ class TextSummarizerApp:
         self.input_text.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         self.input_text.bind("<<Modified>>", self.update_input_stats)
         
-        # Input stats
         input_stats_frame = ttk.Frame(input_frame)
         input_stats_frame.pack(fill=tk.X, padx=5)
         ttk.Label(input_stats_frame, textvariable=self.input_word_count).pack(side=tk.LEFT)
         
-        # Control section
         control_frame = ttk.Frame(main_frame, padding="5")
         control_frame.pack(fill=tk.X, expand=False, padx=5, pady=5)
         
-        # Number of sentences to include
         sentences_frame = ttk.Frame(control_frame)
         sentences_frame.pack(side=tk.LEFT, padx=5)
         
@@ -95,7 +82,6 @@ class TextSummarizerApp:
                                      textvariable=self.sentences_var)
         sentences_spin.pack(side=tk.LEFT, padx=5)
         
-        # Buttons
         buttons_frame = ttk.Frame(control_frame)
         buttons_frame.pack(side=tk.RIGHT, padx=5)
         
@@ -108,7 +94,6 @@ class TextSummarizerApp:
         self.save_btn = ttk.Button(buttons_frame, text="Save Summary", command=self.save_summary)
         self.save_btn.pack(side=tk.LEFT, padx=5)
         
-        # Output section
         output_frame = ttk.LabelFrame(main_frame, text="Summary Output", padding="10")
         output_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         
@@ -116,13 +101,11 @@ class TextSummarizerApp:
                                                    font=("Arial", self.font_size.get()))
         self.output_text.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        # Output stats
         output_stats_frame = ttk.Frame(output_frame)
         output_stats_frame.pack(fill=tk.X, padx=5)
         ttk.Label(output_stats_frame, textvariable=self.output_word_count).pack(side=tk.LEFT)
         ttk.Label(output_stats_frame, textvariable=self.compression_ratio).pack(side=tk.LEFT, padx=15)
         
-        # Status bar
         self.status_var = tk.StringVar()
         self.status_var.set("Ready")
         status_bar = ttk.Label(main_frame, textvariable=self.status_var, relief=tk.SUNKEN, anchor=tk.W)
@@ -141,7 +124,7 @@ class TextSummarizerApp:
             self.style.configure('TButton', background=frame_bg)
             self.input_text.config(bg=text_bg, fg=text_fg, insertbackground=text_fg)
             self.output_text.config(bg=text_bg, fg=text_fg, insertbackground=text_fg)
-        else:  # light
+        else:
             self.root.configure(bg="#f0f0f0")
             text_bg = "white"
             text_fg = "black"
@@ -164,7 +147,7 @@ class TextSummarizerApp:
             text = self.input_text.get(1.0, tk.END).strip()
             word_count = len(re.findall(r'\b\w+\b', text))
             self.input_word_count.set(f"Words: {word_count}")
-            self.input_text.edit_modified(False)  # Reset the modified flag
+            self.input_text.edit_modified(False)
         
     def update_output_stats(self):
         input_text = self.input_text.get(1.0, tk.END).strip()
@@ -217,10 +200,8 @@ class TextSummarizerApp:
             self.output_text.insert(tk.END, summary)
             self.status_var.set(f"Summary complete. Used {num_sentences} sentences.")
             
-            # Update statistics
             self.update_output_stats()
             
-            # Also save to output.txt for compatibility
             with open("output.txt", "w", encoding="utf-8") as outfile:
                 outfile.write(summary)
                 

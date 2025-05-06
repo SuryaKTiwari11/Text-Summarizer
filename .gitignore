@@ -6,8 +6,6 @@ __pycache__/
 # Output files
 output.txt
 
- 
-
 # VS Code settings
 .vscode/
 
@@ -22,3 +20,9 @@ build/
 
 # Logs
 *.log
+
+# Markdown files
+*.md
+report.md
+ppt_prompt.md
+project_explanation.md
